@@ -1,0 +1,19 @@
+.delete-button {
+    align-items: center;
+    background-color: red;
+    border-radius: 50%;
+    border: 1.5px solid white;
+    display: flex;
+    height: 15px;
+    justify-content: center;
+    margin-right: 15px;
+    width: 15px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}

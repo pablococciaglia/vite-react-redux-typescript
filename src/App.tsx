@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FC, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import TodoList from './components/TodoList';
 import { addTodoAction } from './actions/action';
@@ -9,7 +9,7 @@ export type TodoItem = {
   timeStamp: Date
 }[]
 
-function App() {
+const App: FC = (): ReactElement => {
   const dispatch = useDispatch()
 
 
@@ -17,8 +17,8 @@ function App() {
   const onChangeText = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
   };
-  const addItem = () => {
 
+  const addItem = () => {
     if (text !== '') {
       dispatch(addTodoAction({ todo: text, timeStamp: new Date() }))
       setText('')

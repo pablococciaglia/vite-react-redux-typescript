@@ -12,3 +12,15 @@ export function addTodoAction(todo: {
     }
     return action
 }
+export function removeTodoAction(timeStamp: Date) {
+    const action: {
+        type: string;
+        payload: {
+            timeStamp: Date;
+        };
+    } = {
+        type: actionTypes.REMOVE_TODO,
+        payload: { timeStamp },
+    }
+    return action
+}
