@@ -1,5 +1,7 @@
 import { ChangeEvent, useState } from 'react';
+import { useDispatch } from 'react-redux'
 import TodoList from './components/TodoList';
+import { addTodoAction } from './actions/action';
 import './App.css';
 
 export type TodoItem = {
@@ -8,18 +10,17 @@ export type TodoItem = {
 }[]
 
 function App() {
-
+  const dispatch = useDispatch()
 
 
   const [text, setText] = useState('');
-  const [list, setList] = useState<TodoItem>([]);
   const onChangeText = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
   };
   const addItem = () => {
 
     if (text !== '') {
-      setList((oldList) => [...oldList, { todo: text, timeStamp: new Date() }])
+      dispatch(addTodoAction({ todo: text, timeStamp: new Date() }))
       setText('')
     }
   };
@@ -33,7 +34,7 @@ function App() {
         <input value={text} onChange={onChangeText} />
         <button onClick={addItem}>Add Item</button>
       </div>
-      <TodoList list={list} />
+      <TodoList />
     </>
   )
 }

@@ -1,10 +1,11 @@
 import { FC, ReactElement } from "react"
+import { useSelector } from 'react-redux'
 import { TodoItem } from "../App"
+import { getTodoList } from "../selectors/selectors"
 
-type TodoListProps = {
-    list: TodoItem
-}
-const TodoList: FC<TodoListProps> = ({ list }): ReactElement => {
+const TodoList: FC = (): ReactElement => {
+
+    const list: TodoItem = useSelector(getTodoList)
     return (
         <ul>
             {list.map((item) => (<li key={item.timeStamp.toString()}>{item.todo}</li>))}
