@@ -1,7 +1,6 @@
 import { TodoItem } from "../App";
 
 
-export const getTodoList = (state: any) => {
-    console.log(state)
-    return state.todos.present
+export const getTodoList = (state: { todos: TodoItem }) => {
+    return state.todos
 }

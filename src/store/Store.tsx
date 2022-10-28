@@ -11,8 +11,8 @@ export type TodoAction = {
 
 type DispatchType = (args: TodoAction) => TodoAction
 
-const store: Store<TodoItem, TodoAction> & {
-    dispatch: DispatchType
-} = createStore(reducer)
+
+const store: Store<TodoItem, TodoAction> = createStore(reducer)
+console.log(store)
 
 export default store

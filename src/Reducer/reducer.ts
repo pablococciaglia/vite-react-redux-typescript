@@ -1,5 +1,4 @@
 import { TodoItem } from './../App';
-import undoable from 'redux-undo'
 
 import { TodoAction } from '../store/Store';
 
@@ -16,6 +15,4 @@ const todos = (state: TodoItem = [], action: TodoAction) => {
     }
 }
 
-const undoableTodos = undoable(todos)
-
-export default undoableTodos
+export default todos
